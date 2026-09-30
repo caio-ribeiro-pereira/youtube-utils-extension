@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "lint": "eslint . --fix",
-    "lint:check": "eslint ."
+    "lint:check": "eslint .",
+    "translate": "cd ./free-translate-api; go run main.go"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
