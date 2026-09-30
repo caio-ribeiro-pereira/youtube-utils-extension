@@ -1,0 +1,12 @@
+{
+  "manifest_version": 3,
+  "name": "YouTube Studio - Tradução múltipla",
+  "version": "1.5.0",
+  "description": "Traduz o título do vídeo para vários idiomas de uma vez na tela de traduções do YouTube Studio.",
+  "permissions": ["storage"],
+  "host_permissions": ["https://studio.youtube.com/*", "http://localhost:8000/*"],
+  "background": { "service_worker": "background.js" },
+  "content_scripts": [
+    { "matches": ["https://studio.youtube.com/*"], "js": ["content.js"], "run_at": "document_idle" }
+  ]
+}
