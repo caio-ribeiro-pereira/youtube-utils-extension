@@ -1,13 +1,13 @@
 {
   "name": "youtube-utils-extension",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "private": true,
   "description": "Extensão com utilitários e automações para YouTube Studio",
   "type": "module",
   "scripts": {
     "lint": "eslint . --fix",
     "lint:check": "eslint .",
-    "translate": "cd ./free-translate-api; go run main.go"
+    "dev": "cd ./free-translate-api; go run main.go"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
