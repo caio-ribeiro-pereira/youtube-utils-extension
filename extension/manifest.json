@@ -1,18 +1,25 @@
 {
   "manifest_version": 3,
   "name": "YouTube Utils Extension",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "description": "Extensão com utilitários e automações para YouTube Studio.",
   "permissions": ["storage"],
-  "host_permissions": ["https://studio.youtube.com/*", "http://localhost:8000/*"],
-  "icons": {
-    "128": "icons/icon.png"
-  },
+  "host_permissions": [
+    "https://studio.youtube.com/*",
+    "https://www.tiktok.com/*",
+    "http://localhost:8000/*"
+  ],
   "background": { "service_worker": "background.js" },
   "content_scripts": [
-    { 
-      "matches": ["https://studio.youtube.com/*"], 
-      "js": ["multi-translate.js", "schedule-refresh.js"],
-      "run_at": "document_idle" }
+    {
+      "matches": ["https://studio.youtube.com/*"],
+      "js": ["content.js", "schedule-refresh.js", "tiktok-reuse.js"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": ["https://www.tiktok.com/tiktokstudio/*"],
+      "js": ["tiktok-scraper.js"],
+      "run_at": "document_idle"
+    }
   ]
 }

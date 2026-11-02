@@ -14,3 +14,4 @@ Web Extension com funcionalidades de automações úteis para gerenciar uma cont
 ## Funcionalidades
 
 * Tradução múltiplas de idiomas por vídeo;
+* Botão "Reutilizar do Tiktok", que extrai descrição de videos do Tiktok para Youtube;
