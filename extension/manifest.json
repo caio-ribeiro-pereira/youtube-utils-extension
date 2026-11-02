@@ -9,6 +9,9 @@
     "https://www.tiktok.com/*",
     "http://localhost:8000/*"
   ],
+  "icons": {
+    "128": "icons/icon.png"
+  },
   "background": { "service_worker": "background.js" },
   "content_scripts": [
     {
