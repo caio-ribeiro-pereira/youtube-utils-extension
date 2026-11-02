@@ -1,4 +1,4 @@
-// Traduz via API local: POST http://localhost:8000/translate  { "text": "...", "to": "xx" }
+// ---------- Tradução via API local: POST http://localhost:8000/translate  { "text": "...", "to": "xx" } ----------
 const ENDPOINT = 'http://localhost:8000/translate';
 
 // ---------- TikTok Studio ----------

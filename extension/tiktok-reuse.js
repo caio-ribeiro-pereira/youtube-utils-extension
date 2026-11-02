@@ -5,6 +5,7 @@
   const REUSE_LABELS = ['reutilizar detalhes', 'reuse details'];
   const DESCRIPTION_SEL = '#description-textarea [contenteditable="true"]';
   const MAX_CHARS = 180;
+  const SEPARATOR = '\n\n';
 
   const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
   const clean = (s) => s.trim().replace(/\s+/g, ' ').toLowerCase();
@@ -31,15 +32,22 @@
 
   // Substitui todo o conteúdo do campo pelo texto do TikTok
   function fillDescription(box, text) {
+    const before = box.textContent;
+    const hasExisting = before.trim().length > 0;
+    const toInsert = hasExisting ? text + SEPARATOR : text;
+
     box.focus();
     const range = document.createRange();
     range.selectNodeContents(box);
+    range.collapse(true); // cursor no início do campo
     const sel = window.getSelection();
     sel.removeAllRanges();
     sel.addRange(range);
-    const ok = document.execCommand('insertText', false, text);
-    if (!ok || !box.textContent.trim()) {
-      box.innerText = text;
+
+    const ok = document.execCommand('insertText', false, toInsert);
+    if (!ok || box.textContent === before) {
+      const existing = box.innerText.trim();
+      box.innerText = hasExisting ? toInsert + existing : toInsert;
       box.dispatchEvent(new InputEvent('input', { bubbles: true, inputType: 'insertText', data: text }));
     }
   }
