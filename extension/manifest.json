@@ -13,7 +13,7 @@
   "content_scripts": [
     {
       "matches": ["https://studio.youtube.com/*"],
-      "js": ["content.js", "schedule-refresh.js", "tiktok-reuse.js"],
+      "js": ["multi-translate.js", "tiktok-reuse.js"],
       "run_at": "document_idle"
     },
     {
